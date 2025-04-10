@@ -92,17 +92,6 @@
     button.main:hover {
       background-color: #005fa3;
     }
-    .sketchfab-embed-wrapper {
-      width: 100%;
-      max-width: 900px;
-      margin: 30px auto;
-    }
-    iframe {
-      width: 100%;
-      height: 600px;
-      border: none;
-      border-radius: 10px;
-    }
     footer {
       background-color: #ccc;
       text-align: center;
@@ -123,13 +112,10 @@
   <nav>
     <button onclick="scrollToSection('opis')">Opis</button>
     <button onclick="scrollToSection('zalety')">Zalety</button>
-    <button onclick="scrollToSection('galeria')">Galeria</button>
     <button onclick="toggleTheme()">🌗 Motyw</button>
   </nav>
 
   <div class="container">
-    <img src="maybach.png" alt="Mercedes-Maybach C-Class"/>
-
     <p class="price">Cena od: <strong>947 000 zł</strong></p>
 
     <h2 id="opis">Opis</h2>
@@ -146,21 +132,6 @@
     <div class="buttons">
       <button class="main" onclick="alert('Opcja konfiguracji dostępna wkrótce!')">Skonfiguruj pojazd</button>
       <button class="main" onclick="alert('Skontaktuj się z nami: polskibandyta@maybach.pl')">Kontakt</button>
-    </div>
-
-    <h2 id="galeria">Model 3D</h2>
-    <div class="sketchfab-embed-wrapper">
-      <iframe title="Mercedes-Benz S-Class Maybach 2021"
-        allowfullscreen
-        mozallowfullscreen="true"
-        webkitallowfullscreen="true"
-        allow="autoplay; fullscreen; xr-spatial-tracking"
-        xr-spatial-tracking
-        execution-while-out-of-viewport
-        execution-while-not-rendered
-        web-share
-        src="https://sketchfab.com/models/49b7b43e160b4ec887b53700a99fb70f/embed">
-      </iframe>
     </div>
   </div>
 
