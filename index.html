@@ -32,7 +32,6 @@
       background-color: #222;
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
       gap: 20px;
       padding: 10px 0;
     }
@@ -95,7 +94,7 @@
     footer {
       background-color: #ccc;
       text-align: center;
-      padding: 15px;
+      padding: 10px;
       font-size: 14px;
       margin-top: 40px;
     }
@@ -112,10 +111,13 @@
   <nav>
     <button onclick="scrollToSection('opis')">Opis</button>
     <button onclick="scrollToSection('zalety')">Zalety</button>
+    <button onclick="scrollToSection('galeria')">Galeria</button>
     <button onclick="toggleTheme()">🌗 Motyw</button>
   </nav>
 
   <div class="container">
+    <img src="maybach.png" alt="Mercedes-Maybach C-Class"/>
+
     <p class="price">Cena od: <strong>947 000 zł</strong></p>
 
     <h2 id="opis">Opis</h2>
@@ -131,12 +133,16 @@
 
     <div class="buttons">
       <button class="main" onclick="alert('Opcja konfiguracji dostępna wkrótce!')">Skonfiguruj pojazd</button>
-      <button class="main" onclick="alert('Skontaktuj się z nami: polskibandyta@maybach.pl')">Kontakt</button>
+      <button class="main" onclick="alert('Skontaktuj się z dealerem: kontakt@maybach.pl')">Kontakt</button>
     </div>
+
+    <h2 id="galeria">Galeria</h2>
+    <img src="maybach1.png" alt="Mercedes-Maybach galeria"/>
+
   </div>
 
   <footer>
-    Strona fanowska stworzona przez polskibandyta • Kontakt: polskibandyta@maybach.pl
+    Strona fanowska | Projekt by polskibandyta © 2025
   </footer>
 
   <script>
@@ -149,3 +155,4 @@
   </script>
 </body>
 </html>
+
