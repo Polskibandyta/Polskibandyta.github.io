@@ -5,102 +5,132 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Mercedes-Maybach C-Class</title>
   <style>
-    :root {
-      --bg-color: #f5f5f5;
-      --text-color: #222;
-      --accent-color: #0072ce;
-    }
-    body.dark {
-      --bg-color: #111;
-      --text-color: #f0f0f0;
-      --accent-color: #00bfff;
-    }
     body {
+      font-family: Arial, sans-serif;
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      transition: background 0.3s, color 0.3s;
+      padding: 0;
+      background-color: #f5f5f5;
+      color: #111;
     }
+
     header {
       background-color: #000;
-      color: white;
-      padding: 15px 0;
+      padding: 20px 0;
       text-align: center;
     }
+
+    header h1 {
+      color: white;
+      margin: 0;
+    }
+
     nav {
       background-color: #222;
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
       padding: 10px 0;
+      gap: 10px;
     }
+
     nav button {
-      background: none;
-      border: 2px solid var(--accent-color);
-      color: var(--accent-color);
-      padding: 8px 16px;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: all 0.2s ease-in-out;
-    }
-    nav button:hover {
-      background-color: var(--accent-color);
+      padding: 8px 14px;
+      background-color: #333;
       color: white;
+      border: 1px solid #555;
+      cursor: pointer;
+      border-radius: 5px;
     }
-    img {
+
+    .hero {
+      position: relative;
+      max-width: 100%;
+      margin-bottom: 40px;
+    }
+
+    .hero img {
       width: 100%;
-      max-width: 900px;
+      max-height: 600px;
+      object-fit: cover;
       display: block;
-      margin: 20px auto;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
     }
+
+    .hero-text {
+      position: absolute;
+      top: 50%;
+      left: 10%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 20px 30px;
+      border-radius: 12px;
+      color: white;
+      max-width: 500px;
+    }
+
+    .hero-text h2 {
+      font-size: 32px;
+      margin: 0 0 10px 0;
+    }
+
+    .hero-text p {
+      margin: 0;
+      font-size: 18px;
+    }
+
     .container {
-      padding: 20px;
-      max-width: 1000px;
+      max-width: 800px;
       margin: auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
     }
-    h1, h2 {
+
+    h2 {
       text-align: center;
     }
-    .price {
-      font-size: 24px;
-      color: var(--accent-color);
-      text-align: center;
-    }
+
     ul {
-      list-style: square;
+      margin-top: 10px;
       padding-left: 20px;
     }
+
+    .price {
+      text-align: center;
+      color: #0078D7;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
     .buttons {
       text-align: center;
-      margin: 30px 0;
+      margin: 20px 0;
     }
-    button.main {
-      background-color: var(--accent-color);
+
+    .buttons button {
+      margin: 0 10px;
+      padding: 10px 16px;
+      background-color: #0078D7;
       color: white;
       border: none;
-      padding: 12px 25px;
-      font-size: 16px;
-      margin: 10px;
-      cursor: pointer;
       border-radius: 8px;
-      transition: background 0.2s;
+      cursor: pointer;
     }
-    button.main:hover {
-      background-color: #005fa3;
-    }
-    footer {
-      background-color: #ccc;
+
+    .gallery {
       text-align: center;
-      padding: 15px;
-      font-size: 14px;
       margin-top: 40px;
     }
-    body.dark footer {
-      background-color: #222;
+
+    .gallery img {
+      width: 100%;
+      max-width: 800px;
+      border-radius: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+      color: #555;
     }
   </style>
 </head>
@@ -110,18 +140,28 @@
   </header>
 
   <nav>
-    <button onclick="scrollToSection('opis')">Opis</button>
-    <button onclick="scrollToSection('zalety')">Zalety</button>
-    <button onclick="toggleTheme()">🌗 Motyw</button>
+    <button>Opis</button>
+    <button>Zalety</button>
+    <button>Galeria</button>
+    <button>Możwy</button>
   </nav>
 
-  <div class="container">
-    <p class="price">Cena od: <strong>947 000 zł</strong></p>
+  <!-- HERO SECTION NA GÓRZE STRONY -->
+  <div class="hero">
+    <img src="image.png" alt="Mercedes-Maybach C-Class">
+    <div class="hero-text">
+      <h2>Prestiż bez kompromisów</h2>
+      <p>Poznaj klasę, która wyznacza nowe standardy luksusu i elegancji.</p>
+    </div>
+  </div>
 
-    <h2 id="opis">Opis</h2>
+  <div class="container">
+    <div class="price">Cena od: <span style="color: #0078D7;">947 000 zł</span></div>
+
+    <h2>Opis</h2>
     <p>Mercedes-Maybach C-Class to wyjątkowe połączenie luksusu, nowoczesnej technologii i prestiżu. Ten samochód to nie tylko środek transportu – to manifest stylu życia.</p>
 
-    <h2 id="zalety">Dlaczego warto?</h2>
+    <h2>Dlaczego warto?</h2>
     <ul>
       <li>Luksusowe wnętrze wykończone skórą i drewnem</li>
       <li>Silnik V6 z możliwością konfiguracji do V8</li>
@@ -130,22 +170,19 @@
     </ul>
 
     <div class="buttons">
-      <button class="main" onclick="alert('Opcja konfiguracji dostępna wkrótce!')">Skonfiguruj pojazd</button>
-      <button class="main" onclick="alert('Skontaktuj się z nami: polskibandyta@maybach.pl')">Kontakt</button>
+      <button>Skonfiguruj pojazd</button>
+      <button>Kontakt</button>
+    </div>
+
+    <div class="gallery">
+      <h2>Galeria</h2>
+      <img src="image.png" alt="Mercedes-Maybach galeria">
     </div>
   </div>
 
   <footer>
-    Strona fanowska stworzona przez polskibandyta • Kontakt: polskibandyta@maybach.pl
+    Strona fanowska | Projekt by polskabandy © 2025
   </footer>
-
-  <script>
-    function toggleTheme() {
-      document.body.classList.toggle('dark');
-    }
-    function scrollToSection(id) {
-      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-    }
-  </script>
 </body>
 </html>
+
