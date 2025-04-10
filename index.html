@@ -81,6 +81,20 @@
       background-color: var(--button-hover);
     }
 
+    #notification {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: var(--primary-color);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      display: none;
+      z-index: 1000;
+    }
+
     .hero {
       position: relative;
       text-align: center;
@@ -157,6 +171,8 @@
   </style>
 </head>
 <body>
+  <div id="notification">Trwają prace nad tą funkcją</div>
+
   <header>
     <h1>Mercedes-Maybach C-Class</h1>
     <nav>
@@ -197,8 +213,8 @@
   </div>
 
   <div class="buttons">
-    <button onclick="showNotification('Skonfiguruj pojazd wybrany')">Skonfiguruj pojazd</button>
-    <button onclick="redirectTo('https://example.com')">Znajdź dostępne pojazdy</button>
+    <button onclick="showNotification()">Skonfiguruj pojazd</button>
+    <button onclick="showNotification()">Znajdź dostępne pojazdy</button>
   </div>
 
   <footer>
@@ -216,12 +232,12 @@
       document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
     }
 
-    function showNotification(message) {
-      alert(message);
-    }
-
-    function redirectTo(url) {
-      window.location.href = url;
+    function showNotification() {
+      const notification = document.getElementById('notification');
+      notification.style.display = 'block';
+      setTimeout(() => {
+        notification.style.display = 'none';
+      }, 3000); // Powiadomienie znika po 3 sekundach
     }
   </script>
 </body>
