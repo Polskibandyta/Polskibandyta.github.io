@@ -3,14 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mercedes-Maybach Klasa S</title>
+  <title>Mercedes-Maybach C-Class</title>
   <style>
+    :root {
+      --bg-color-light: #f5f5f5;
+      --text-color-light: #111;
+      --bg-color-dark: #111;
+      --text-color-dark: #f5f5f5;
+      --primary-color: #0078D7;
+      --button-bg-light: #0078D7;
+      --button-bg-dark: #333;
+      --button-text: white;
+      --button-hover: #005bb5;
+    }
+
     body {
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
-      color: #111;
+      background-color: var(--bg-color-light);
+      color: var(--text-color-light);
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    body.dark-mode {
+      background-color: var(--bg-color-dark);
+      color: var(--text-color-dark);
     }
 
     header {
@@ -23,8 +41,8 @@
 
     header h1 {
       color: white;
-      margin: 0;
       font-size: 24px;
+      margin: 0;
     }
 
     header nav {
@@ -32,10 +50,35 @@
       gap: 15px;
     }
 
-    header nav a {
+    header nav button {
+      background: none;
+      border: none;
       color: white;
-      text-decoration: none;
       font-size: 14px;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    header nav button:hover {
+      color: var(--primary-color);
+    }
+
+    .theme-toggle {
+      background-color: var(--button-bg-light);
+      color: var(--button-text);
+      border: none;
+      border-radius: 5px;
+      padding: 8px 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    body.dark-mode .theme-toggle {
+      background-color: var(--button-bg-dark);
+    }
+
+    .theme-toggle:hover {
+      background-color: var(--button-hover);
     }
 
     .hero {
@@ -69,16 +112,6 @@
       margin: 0;
     }
 
-    .price {
-      position: absolute;
-      top: 60%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: #fff;
-      font-size: 20px;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    }
-
     .car-image {
       text-align: center;
       margin-top: -150px;
@@ -97,21 +130,22 @@
     }
 
     .buttons button {
-      padding: 15px 30px;
-      font-size: 16px;
+      background-color: var(--button-bg-light);
+      color: var(--button-text);
       border: none;
       border-radius: 5px;
+      padding: 15px 30px;
+      font-size: 16px;
       cursor: pointer;
+      transition: background-color 0.3s;
     }
 
-    .buttons .configure {
-      background-color: #0078D7;
-      color: white;
+    body.dark-mode .buttons button {
+      background-color: var(--button-bg-dark);
     }
 
-    .buttons .available {
-      background-color: #000;
-      color: white;
+    .buttons button:hover {
+      background-color: var(--button-hover);
     }
 
     footer {
@@ -124,13 +158,13 @@
 </head>
 <body>
   <header>
-    <h1>Mercedes-Maybach Klasa S</h1>
+    <h1>Mercedes-Maybach C-Class</h1>
     <nav>
-      <a href="#">Modele</a>
-      <a href="#">Zakup</a>
-      <a href="#">Serwis i usługi</a>
-      <a href="#">Marka</a>
+      <button onclick="scrollToSection('description')">Opis</button>
+      <button onclick="scrollToSection('advantages')">Zalety</button>
+      <button onclick="scrollToSection('gallery')">Galeria</button>
     </nav>
+    <button class="theme-toggle" onclick="toggleTheme()">Tryb ciemny</button>
   </header>
 
   <div class="hero">
@@ -142,13 +176,45 @@
     <img src="maybach1.png" alt="Mercedes-Maybach">
   </div>
 
+  <div id="description" class="content">
+    <h2>Opis</h2>
+    <p>Mercedes-Maybach C-Class to wyjątkowe połączenie luksusu, nowoczesnej technologii i prestiżu. Ten samochód to nie tylko środek transportu – to manifest stylu życia.</p>
+  </div>
+
+  <div id="advantages" class="content">
+    <h2>Dlaczego warto?</h2>
+    <ul>
+      <li>Luksusowe wnętrze wykończone skórą i drewnem</li>
+      <li>Silnik V6 z możliwością konfiguracji do V8</li>
+      <li>Autonomiczne systemy jazdy</li>
+      <li>Efektowny wygląd i legendarna marka</li>
+    </ul>
+  </div>
+
+  <div id="gallery" class="content">
+    <h2>Galeria</h2>
+    <img src="maybach1.png" alt="Mercedes-Maybach galeria">
+  </div>
+
   <div class="buttons">
-    <button class="configure">Skonfiguruj pojazd</button>
-    <button class="available">Znajdź dostępne pojazdy</button>
+    <button onclick="alert('Skonfiguruj pojazd')">Skonfiguruj pojazd</button>
+    <button onclick="alert('Znajdź dostępne pojazdy')">Znajdź dostępne pojazdy</button>
   </div>
 
   <footer>
     Strona fanowska | Projekt by Polskibandyta © 2025
   </footer>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('dark-mode');
+      const toggleButton = document.querySelector('.theme-toggle');
+      toggleButton.textContent = document.body.classList.contains('dark-mode') ? 'Tryb jasny' : 'Tryb ciemny';
+    }
+
+    function scrollToSection(sectionId) {
+      document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
 </body>
 </html>
