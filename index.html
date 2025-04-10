@@ -41,29 +41,35 @@
       border-radius: 5px;
     }
 
+    /* HERO BACKGROUND AND CAR IMAGE */
     .hero {
       position: relative;
-      max-width: 100%;
-      margin-bottom: 40px;
+      height: 500px;
+      background-image: url('maybach.png');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .hero img {
-      width: 100%;
-      max-height: 600px;
-      object-fit: cover;
-      display: block;
+      max-height: 300px;
+      width: auto;
+      z-index: 2;
+      position: relative;
     }
 
     .hero-text {
       position: absolute;
-      top: 50%;
-      left: 10%;
-      transform: translateY(-50%);
+      top: 20px;
+      left: 40px;
       background-color: rgba(0, 0, 0, 0.5);
       padding: 20px 30px;
       border-radius: 12px;
       color: white;
-      max-width: 500px;
+      max-width: 450px;
+      z-index: 3;
     }
 
     .hero-text h2 {
@@ -146,13 +152,13 @@
     <button>Możwy</button>
   </nav>
 
-  <!-- HERO SECTION NA GÓRZE STRONY -->
+  <!-- HERO with BACKGROUND and CAR IMAGE -->
   <div class="hero">
-    <img src="image.png" alt="Mercedes-Maybach C-Class">
     <div class="hero-text">
       <h2>Prestiż bez kompromisów</h2>
       <p>Poznaj klasę, która wyznacza nowe standardy luksusu i elegancji.</p>
     </div>
+    <img src="maybach1.png" alt="Mercedes-Maybach C-Class">
   </div>
 
   <div class="container">
@@ -175,14 +181,4 @@
     </div>
 
     <div class="gallery">
-      <h2>Galeria</h2>
-      <img src="image.png" alt="Mercedes-Maybach galeria">
-    </div>
-  </div>
-
-  <footer>
-    Strona fanowska | Projekt by polskabandy © 2025
-  </footer>
-</body>
-</html>
-
+      <h2>Galeria</
