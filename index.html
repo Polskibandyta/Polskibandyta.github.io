@@ -197,8 +197,8 @@
   </div>
 
   <div class="buttons">
-    <button onclick="alert('Skonfiguruj pojazd')">Skonfiguruj pojazd</button>
-    <button onclick="alert('Znajdź dostępne pojazdy')">Znajdź dostępne pojazdy</button>
+    <button onclick="showNotification('Skonfiguruj pojazd wybrany')">Skonfiguruj pojazd</button>
+    <button onclick="redirectTo('https://example.com')">Znajdź dostępne pojazdy</button>
   </div>
 
   <footer>
@@ -214,6 +214,14 @@
 
     function scrollToSection(sectionId) {
       document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function showNotification(message) {
+      alert(message);
+    }
+
+    function redirectTo(url) {
+      window.location.href = url;
     }
   </script>
 </body>
